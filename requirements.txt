@@ -1,0 +1,7 @@
+-r test_requirements.txt
+
+tornado==5.1
+psycopg2==2.7.5
+aiopg==0.14.0
+SQLAlchemy==1.2.10
+alembic==1.0.0
