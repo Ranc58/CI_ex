@@ -7,6 +7,9 @@ language: python
 python:
     - "3.6"
 
+notifications:
+  email: false
+
 before_install:
   - psql -U postgres -c "CREATE USER ciex PASSWORD 'ciex'"
   - psql -U postgres -c "CREATE DATABASE ciex_db OWNER ciex"
@@ -16,4 +19,4 @@ before_install:
   - alembic upgrade head
 
 script:
-  - cd src && pytest
+  - pytest
