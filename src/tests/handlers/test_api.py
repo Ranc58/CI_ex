@@ -93,3 +93,10 @@ class TestUser(BaseAPITestCase):
         response = self.make_request(endpoint, method='DELETE')
         self.assertEqual(response.code, httplib.NO_CONTENT)
 
+
+class Test404Handler(BaseAPITestCase):
+    resource = 'error_endpoint'
+
+    def test_get_error(self):
+        response = self.make_request(self.resource)
+        self.assertEqual(response.code, httplib.NOT_FOUND)

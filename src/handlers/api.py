@@ -13,10 +13,7 @@ class UsersHandler(BaseAPIHandler):
         return self.return_created({"user": dict(user)})
 
     async def get(self, *args, **kwargs):
-        try:
-            all_users = await users.get_all_users()
-        except Exception as e:
-            self.json_response({"users": e})
+        all_users = await users.get_all_users()
         users_list = [dict(user) for user in all_users]
         return self.json_response({"users": users_list})
 

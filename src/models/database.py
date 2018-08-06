@@ -12,9 +12,6 @@ class DbEngine:
     def connection_required(self, func):
         @functools.wraps(func)
         async def wrapper(*args, **kwargs):
-            if args:
-                if isinstance(args[0], SAConnection):
-                    return await func(*args, **kwargs)
             engine = await create_engine(get_connection_string())
             async with engine:
                 async with engine.acquire() as conn:
