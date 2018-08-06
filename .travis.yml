@@ -4,12 +4,14 @@ services:
   - postgresql
 
 language: python
+python:
+    - "3.6"
 
 before_install:
   - psql -U postgres -c "CREATE USER ciex PASSWORD 'ciex'"
   - psql -U postgres -c "CREATE DATABASE ciex_db OWNER ciex"
   - cd src
-  - pip install -r requirements.txt
+  - pip3 install -r requirements.txt
   - alembic upgrade head
 
 script:
