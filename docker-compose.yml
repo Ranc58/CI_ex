@@ -3,8 +3,8 @@ services:
   postgres:
     restart: always
     image: postgres
-#    ports:
-#      - "5432:5432"
+    ports:
+      - "5432:5432"
     env_file:
       - 'src/environ.env'
     volumes:
