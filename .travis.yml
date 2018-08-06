@@ -11,7 +11,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
   - sudo service postgresql stop
-  - docker-compose up postgres
+  - docker-compose start postgres
   - cd src
   - pip install -r requirements.txt
   - alembic upgrade head
