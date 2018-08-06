@@ -21,7 +21,5 @@ services:
       - 'src/environ.env'
     depends_on:
       - postgres
-#    volumes:
-#      - ./src:/data/web
     ports:
       - "8080:8080"

@@ -2,5 +2,6 @@
 set -e
 
 export DB_NAME=test_$DB_NAME
+export PYTHONDONTWRITEBYTECODE=1
 
-python3 -m pytest tests/ -s -vv -ra --junitxml=./unit.xml --cov . --cov-report xml
+python3 -m pytest tests/ --ff --lf -s -vv -ra --junitxml=./unit.xml --cov . --cov-report xml
