@@ -12,6 +12,7 @@ before_install:
   - psql -U postgres -c "CREATE DATABASE ciex_db OWNER ciex"
   - cd src
   - pip3 install -r requirements.txt
+  - export PYTHONPATH=${PWD}
   - alembic upgrade head
 
 script:
