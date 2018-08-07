@@ -7,14 +7,8 @@ from sqlalchemy import create_engine
 LOCALE = "ru_RU"
 
 
-def _insert_to_db(model_class, **kwargs):
-    engine = create_engine(get_connection_url())
-    res = engine.execute(model_class.insert().values(**kwargs).returning(*model_class.c))
-    return res.fetchone()
-
-
 class BaseFactory(factory.Factory):
-
+    
     class Meta:
         abstract = True
 
@@ -24,13 +18,9 @@ class BaseFactory(factory.Factory):
 
     @classmethod
     def _create(cls, model_class, *args, **kwargs):
-        # instance_id = model_class.insert(*args, **kwargs)
-        # instance = model_class.get_id(instance_id)
-
-        res = _insert_to_db(model_class, **kwargs)
-        return res
-
-
+        engine = create_engine(get_connection_url())
+        res = engine.execute(model_class.insert().values(**kwargs).returning(*model_class.c))
+        return res.fetchone()
 
 
 class UserFactory(BaseFactory):

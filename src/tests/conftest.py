@@ -35,7 +35,6 @@ class BaseTestCase(AsyncHTTPTestCase):
         return self.app
 
     def setUp(self):
-        command.downgrade(get_alembic_config(), 'base')
         command.upgrade(get_alembic_config(), 'head')
         return super().setUp()
 
