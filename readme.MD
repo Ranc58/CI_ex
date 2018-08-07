@@ -22,7 +22,7 @@ Training project for CI. API based on tornado.
 
 - Without docker:
    1) ```cd src```
-   2) ```.\runtests.sh```
+   2) ```./runtests.sh```
    3) for report ```coverage report```
 # Project Goals
 
