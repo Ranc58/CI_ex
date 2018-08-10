@@ -14,6 +14,5 @@ COPY . /data/web
 
 RUN pip3 install -r requirements.txt
 
-COPY . /data/web
 
 ENTRYPOINT ["/data/web/entrypoint.sh", "start"]
